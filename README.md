@@ -26,8 +26,10 @@ O **Cyber-Root** é um script simples que configura aliases e funções para res
 
 Para instalar e configurar o ambiente automaticamente, execute o comando abaixo no seu Termux:
 
-```bash
-curl -skL https://raw.githubusercontent.com/qrt2/Cyber-Root/main/Install-Su | bash```
+```bash curl -skL https://raw.githubusercontent.com/qrt2/Cyber-Root/main/Install-Su | bash
+```
+
+
 ## Licença
 Este projeto está sob a licença MIT. Sinta-se à vontade para usar, modificar e distribuir
 
