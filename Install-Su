@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Cores
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+echo -e "${CYAN}[*] Configurando Ambiente Cyber-Root...${NC}"
+
+# Comenta aliases de sudo antigos e adiciona o novo
+if grep -q "alias sudo=" ~/.bashrc; then
+    # Comenta todas as linhas que começam com alias sudo (sem ser o nosso)
+    sed -i '/alias sudo=/s/^/#/' ~/.bashrc
+fi
+
+echo "alias sudo='su -i -c \"export PATH=\$PATH; export HOME=\$HOME; \$@\"'" >> ~/.bashrc
+
+# Adiciona a função root customizada
+if ! grep -q "root()" ~/.bashrc; then
+    cat <<'EOF' >> ~/.bashrc
+
+# Função para Shell Root do Termux
+root() {
+    local MY_PS1='\[\e[1;31m\]Cyber-Root\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]# '
+    su -i -c "export PATH=$PATH; export HOME=$HOME; export TERM=$TERM; export PS1='$MY_PS1'; exec bash --norc --noprofile"
+}
+EOF
+fi
+
+# Executa o source
+source ~/.bashrc
+
+echo -e "${GREEN}[+] Configuração concluída!${NC}"
+echo -e "--------------------------------------"
+echo -e "Como usar:"
+echo -e "${CYAN}sudo <comando>${NC}  - Executa comandos como root (ex: sudo ls / ...)"
+echo -e "${CYAN}root${NC}   - Entra no Shell Root interativo"
+echo -e "--------------------------------------"
+echo -e "Nota: O comando 'su' original continua funcionando normalmente."
