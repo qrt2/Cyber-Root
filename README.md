@@ -1,17 +1,18 @@
+
 # Cyber-Root
 
-> "Ambiente Root avançado para Termux (Android 13/14) com suporte a MagiskSU, sudo alias e terminal interativo colorido."
+> "Script de ambiente Root para Termux (Android 13/14) focado em restaurar comandos de superusuário e terminal interativo customizado."
 
-O **Cyber-Root** é um script simples que configura aliases e funções para restaurar o acesso prático ao Shell Root no Termux. Ele foi desenvolvido como uma alternativa moderna ao antigo comando `tsu`, que apresenta instabilidades em versões recentes do Android.
+O **Cyber-Root** é um utilitário leve desenvolvido para restaurar a praticidade do Shell Root no Termux. Ele serve como uma alternativa simples para usuários que enfrentam instabilidades com o comando `tsu` em versões recentes do Android, garantindo que você tenha acesso ao root sem perder o PATH do ambiente Termux.
 
 ---
 
-## Funcionalidades
+## ✨ Funcionalidades
 
-* **Comando `root`**: Entra diretamente no shell root com o PATH do Termux preservado e um prompt visual exclusivo.
-* **Comando `sudo`**: Executa ferramentas específicas (como Nmap ou Tcpdump) com privilégios elevados sem precisar sair do shell de usuário.
-* **Compatibilidade**: O comando `su` original do Magisk continua funcionando normalmente.
-* **Estabilidade**: Resolve o erro `Inappropriate ioctl for device` comum em terminais sem TTY.
+* **Comando `root`**: Função que entra no shell root preservando variáveis de ambiente e com prompt visual personalizado.
+* **Comando `sudo`**: Função otimizada para executar comandos específicos com privilégios de superusuário sem sair do shell atual.
+* **Estabilidade**: Desenvolvido em Bash puro para ser leve e evitar erros de TTY (Inappropriate ioctl).
+* 
 
 ---
 
