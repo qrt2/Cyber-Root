@@ -20,9 +20,9 @@ if ! grep -q "Cyber-Root" ~/.bashrc; then
 # Funções para Shell Root e Sudo
 sudo() {
     if [ $# -eq 0 ]; then
-        su
+        su -i
     else
-        su -c "$*"
+        su -i -c "$*"
     fi
 }
 
