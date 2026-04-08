@@ -19,11 +19,7 @@ if ! grep -q "Cyber-Root" ~/.bashrc; then
 # --- Início Cyber-Root ---
 # Funções para Shell Root e Sudo
 sudo() {
-    if [ $# -eq 0 ]; then
-        su -i
-    else
-        su -i -c "$*"
-    fi
+    su -c "PATH=$PATH; $@"
 }
 
 root() {
