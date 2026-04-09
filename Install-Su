@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 YW='\033[0;33m'
 RED='\033[0;31m'
 NC='\033[0m'
-
+clear
 check-tsu() {
 if command -v tsu >/dev/null 2>&1; then
     echo -e "${YW} Removendo conflitos (tsu)..."
