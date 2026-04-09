@@ -6,8 +6,9 @@ GREEN='\033[0;32m'
 YW='\033[0;33m'
 RED='\033[0;31m'
 NC='\033[0m'
-clear
+
 check-tsu() {
+clear
 if command -v tsu >/dev/null 2>&1; then
     echo -e "${YW} Removendo conflitos (tsu)..."
     apt remove tsu -y && apt autoremove -y
@@ -20,12 +21,11 @@ check_bashrc() {
     else
         echo "${GREEN}
 Arquivo .bashrc detectado."
-sed -i '/# --- Início Cyber-Root ---/,/# --- Fim Cyber-Root ---/d' ~/.bashrc
-    fi
+ fi
 }
 check-tsu
 check_bashrc
-
+sed -i '/# --- Início Cyber-Root ---/,/# --- Fim Cyber-Root ---/d' ~/.bashrc >> /dev/null 2>&1
 echo -e "${CYAN}[*] Configurando Ambiente Cyber-Root...${NC}"
 
 # Limpa aliases antigos de sudo para evitar conflitos
@@ -34,7 +34,6 @@ if grep -q "alias sudo=" ~/.bashrc; then
 fi
 
 # Adiciona as funções ao .bashrc se não existirem
-if ! grep -q "Cyber-Root" ~/.bashrc; then
     cat <<'EOF' >> ~/.bashrc
 
 # --- Início Cyber-Root ---
@@ -49,7 +48,6 @@ root() {
 }
 # --- Fim Cyber-Root ---
 EOF
-fi
 
 # Recarrega o .bashrc
 source ~/.bashrc
