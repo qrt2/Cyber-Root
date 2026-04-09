@@ -3,8 +3,13 @@
 # Cores
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
+YW='\033[0;33m'
 NC='\033[0m'
 
+if command -v tsu >/dev/null 2>&1; then
+    echo -e "${YW} Removendo conflitos (tsu)..."
+    apt remove tsu -y && apt autoremove -y
+fi
 echo -e "${CYAN}[*] Configurando Ambiente Cyber-Root...${NC}"
 
 # Limpa aliases antigos de sudo para evitar conflitos
