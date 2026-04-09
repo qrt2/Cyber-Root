@@ -15,7 +15,7 @@ fi
 }
 check_bashrc() {
     if [ ! -f "$HOME/.bashrc" ]; then
-        echo "${RED} Arquivo .bashrc não encontrado. ${YW} Criando..."
+        echo -e "${RED} Arquivo .bashrc não encontrado. ${YW} Criando..."
         touch "$HOME/.bashrc"
     else
         echo -e "${GREEN} Arquivo .bashrc detectado."
