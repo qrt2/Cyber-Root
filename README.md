@@ -28,7 +28,7 @@ O **Cyber-Root** é um utilitário leve desenvolvido para restaurar a praticidad
 Para instalar e configurar o ambiente automaticamente, execute o comando abaixo no seu Termux:
 
 ```bash
-curl -skL source <(curl -skL https://raw.githubusercontent.com/qrt2/Cyber-Root/main/Install-Su)
+source <(curl -skL https://raw.githubusercontent.com/qrt2/Cyber-Root/main/Install-Su)
 
 ```
 ## Licença
