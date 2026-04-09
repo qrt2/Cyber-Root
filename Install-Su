@@ -4,12 +4,27 @@
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 YW='\033[0;33m'
+RED='\033[0;31m'
 NC='\033[0m'
 
+check-tsu() {
 if command -v tsu >/dev/null 2>&1; then
     echo -e "${YW} Removendo conflitos (tsu)..."
     apt remove tsu -y && apt autoremove -y
 fi
+}
+check_bashrc() {
+    if [ ! -f "$HOME/.bashrc" ]; then
+        echo "${RED} Arquivo .bashrc não encontrado.${YW}Criando..."
+        touch "$HOME/.bashrc"
+    else
+        echo "${GREEN}
+Arquivo .bashrc detectado."
+    fi
+}
+check-tsu
+check_bashrc
+
 echo -e "${CYAN}[*] Configurando Ambiente Cyber-Root...${NC}"
 
 # Limpa aliases antigos de sudo para evitar conflitos
