@@ -15,11 +15,12 @@ fi
 }
 check_bashrc() {
     if [ ! -f "$HOME/.bashrc" ]; then
-        echo "${RED} Arquivo .bashrc não encontrado.${YW}Criando..."
+        echo "${RED} Arquivo .bashrc não encontrado. ${YW} Criando..."
         touch "$HOME/.bashrc"
     else
         echo "${GREEN}
 Arquivo .bashrc detectado."
+sed -i '/# --- Início Cyber-Root ---/,/# --- Fim Cyber-Root ---/d' ~/.bashrc
     fi
 }
 check-tsu
